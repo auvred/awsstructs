@@ -22,4 +22,4 @@ pnpm add @auvred/awsstructs
 
 ## Misc
 
-- [`custom-resource-runtime`](./src/custom-resource-runtime/README.md) - Utils for dafer CFN custom resources
+- [`custom-resource-runtime`](./src/custom-resource-runtime/README.md) - Utils for safer CFN custom resources
