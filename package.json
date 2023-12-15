@@ -1,0 +1,35 @@
+{
+  "name": "@auvred/awsstructs",
+  "version": "0.0.1",
+  "packageManager": "pnpm@8.12.1",
+  "author": "auvred <aauvred@gmail.com> (https://github.com/auvred/)",
+  "description": "Utility constructs for AWS CDK",
+  "files": ["dist"],
+  "keywords": ["cdk", "constructs"],
+  "homepage": "https://github.com/auvred/constructs#readme",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./custom-resource-runtime": "./dist/custom-resource-runtime/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@auvred/eslint-config": "^0.5.1",
+    "@types/node":"^18.19.3",
+    "@types/aws-lambda": "^8.10.130",
+    "aws-cdk-lib": "^2.113.0",
+    "constructs": "^10.3.0",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "^2.113.0",
+    "constructs": "^10.3.0"
+  }
+}
