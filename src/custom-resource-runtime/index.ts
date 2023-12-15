@@ -22,7 +22,7 @@ const logger = {
 type MaybePromise<T> = Promise<T> | T
 export type CustomResourceStatus = 'SUCCESS' | 'FAILED'
 
-type PatchCustomResourceEvent<T> = Omit<
+export type PatchCustomResourceEvent<T> = Omit<
   CloudFormationCustomResourceEvent,
   'ResourceProperties'
 > & {
@@ -31,6 +31,20 @@ type PatchCustomResourceEvent<T> = Omit<
   } & T
 }
 
+/**
+ * Will submit an error to CFN if the handler eighter threw an error or returned
+ * 'FAILED'. Otherwise 'SUCCESS' will be submitted.
+ *
+ * @example
+ *
+ * ```ts
+ * export const handler = customResourceHandler<{ data: string }>(
+ *   async event => {
+ *     console.log(event.ResourceProperties.data)
+ *   },
+ * )
+ * ```
+ */
 export function customResourceHandler<
   // See https://github.com/microsoft/TypeScript/issues/15300
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
