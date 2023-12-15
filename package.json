@@ -29,6 +29,7 @@
     "build": "tsup",
     "format": "eslint . --fix",
     "lint": "eslint .",
+    "release": "npx -y bumpp",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
