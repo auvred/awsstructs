@@ -27,7 +27,11 @@ export interface ReplaceInUriCloudFrontFunctionProps {
 }
 
 export class CloudFrontFunction extends cloudfront.Function {
-  static forSpa(scope: Construct, id: string, props?: CloudFrontFunctionProps) {
+  static forSpa(
+    scope: Construct,
+    id: string,
+    props?: CloudFrontFunctionProps,
+  ): CloudFrontFunction {
     return new CloudFrontFunction(scope, id, {
       ...props,
       code: cloudfront.FunctionCode.fromInline(`
@@ -69,7 +73,7 @@ function handler(event) {
     scope: Construct,
     id: string,
     props: ReplaceInUriCloudFrontFunctionProps,
-  ) {
+  ): CloudFrontFunction {
     const escapedPattern = (
       typeof props.pattern === 'string'
         ? new RegExp(props.pattern)

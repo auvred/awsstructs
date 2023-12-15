@@ -11,10 +11,10 @@ import type {
 
 const logger = {
   prefix: '[Custom Resource Wrapper]',
-  info(...args: Parameters<(typeof console)['info']>) {
+  info(...args: Parameters<(typeof console)['info']>): void {
     console.log(this.prefix, ...args)
   },
-  error(...args: Parameters<(typeof console)['error']>) {
+  error(...args: Parameters<(typeof console)['error']>): void {
     console.error(this, this.prefix, ...args)
   },
 }
@@ -86,7 +86,7 @@ export async function submitResponse({
   event: CloudFormationCustomResourceEvent
   status: CustomResourceStatus
   reason?: string
-}) {
+}): Promise<void> {
   const responseBody = JSON.stringify({
     LogicalResourceId: event.LogicalResourceId,
     PhysicalResourceId:
@@ -121,7 +121,7 @@ async function httpRequest(
   url: URL,
   options: https.RequestOptions,
   responseBody: string,
-) {
+): Promise<void> {
   return await new Promise((resolve, reject) => {
     const req = https.request(url, options)
     req.on('error', reject)
