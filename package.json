@@ -6,7 +6,15 @@
   "description": "Utility constructs for AWS CDK",
   "files": ["dist"],
   "keywords": ["cdk", "constructs"],
-  "homepage": "https://github.com/auvred/constructs#readme",
+  "homepage": "https://github.com/auvred/awsstructs#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/auvred/awsstructs"
+  },
+    "license": "MIT",
+    "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
